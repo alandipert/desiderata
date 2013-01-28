@@ -9,7 +9,7 @@ A ClojureScript bag of tricks.
 ### Dependency
 
 ```clojure
-[alandipert/desiderata "1.0.0"]
+[alandipert/desiderata "1.0.1"]
 ```
 
 ## Testing
