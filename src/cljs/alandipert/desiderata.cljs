@@ -1,8 +1,8 @@
 (ns alandipert.desiderata)
 
 (defn bf-seq
-  [branch? children root]
   "Like tree-seq but traversal is breadth-first instead of depth-first."
+  [branch? children root]
   (letfn [(walk [queue]
             (when-let [node (peek queue)]
               (lazy-seq
