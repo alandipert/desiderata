@@ -7,10 +7,10 @@
 
 (defn gen-variadic-invoke [f]
   (let [args (repeatedly 22 gensym)]
-    `(~'invoke [~@args] (apply ~f (list* ~@(butlast args) ~(last args))))))
+    `(~'invoke [~@args] (apply ~f ~@(butlast args) ~(last args)))))
 
 (defn gen-apply-to [f]
-  `(~'applyTo [this# args#] (apply ~f (list* this# args#))))
+  `(~'applyTo [this# args#] (apply ~f this# args#)))
 
 (defn extend-IFn [f]
   `(clojure.lang.IFn
