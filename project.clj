@@ -1,4 +1,4 @@
-(defproject alandipert/desiderata "1.0.2"
+(defproject alandipert/desiderata "1.0.3-SNAPSHOT"
   :description "A ClojureScript bag of tricks."
   :url "https://github.com/alandipert/desiderata"
   :license {:name "Eclipse Public License"
