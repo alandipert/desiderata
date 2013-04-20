@@ -7,7 +7,7 @@
 
 (defn gen-variadic-invoke [f]
   (let [args (repeatedly 22 gensym)]
-    `(~'invoke [~@args] (apply ~f ~@(butlast args) ~(last args)))))
+    `(~'invoke [~@args] (apply ~f ~@args))))
 
 (defn gen-apply-to [f]
   `(~'applyTo [this# args#] (apply ~f this# args#)))
