@@ -28,8 +28,9 @@
      ~@opts+specs))
 
 (defmacro deftypefn
-  "Like deftype, but accepts a function f before any specs.  f should
-  accept at least one argument, 'this'."
+  "Like deftype, but accepts a function f before any specs that is
+  used to implement clojure.lang.IFn.  f should accept at least one
+  argument, 'this'."
   [name [& fields] f & opts+specs]
   `(deftype ~name [~@fields]
      ~@(extend-IFn f)
