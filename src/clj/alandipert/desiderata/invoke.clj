@@ -35,3 +35,15 @@
   `(deftype ~name [~@fields]
      ~@(extend-IFn f)
      ~@opts+specs))
+
+(defmacro defrecordfn
+  "Like defrecord, but accepts a function f before any specs that is
+  used to implement clojure.lang.IFn.  f should accept at least one
+  argument, 'this'."
+  [name [& fields] f & opts+specs]
+  `(defrecord ~name [~@fields]
+     ~@(extend-IFn f)
+     ~@opts+specs))
+
+(defrecordfn Person [name age]
+  get)

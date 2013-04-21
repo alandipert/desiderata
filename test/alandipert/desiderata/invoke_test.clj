@@ -1,6 +1,6 @@
 (ns alandipert.desiderata.invoke-test
   (:require [clojure.test :refer :all]
-            [alandipert.desiderata.invoke :refer [reifn deftypefn]]))
+            [alandipert.desiderata.invoke :refer [reifn deftypefn defrecordfn]]))
 
 (deftest reifn-tests
   (is ((reifn (constantly true))))
@@ -34,3 +34,10 @@
   (is (= "10" (str ((Bar. 1) 2 3 4))))
 
   (is (= "cba" (str (reduce #((MyStr. %2) %1) "abc")))))
+
+(defrecordfn Person [name age] get)
+
+(deftest defrecordfn-tests
+  (let [bob (Person. "Bob" 39)]
+    (is (= ["Bob" 39]
+           (mapv bob [:name :age])))))
