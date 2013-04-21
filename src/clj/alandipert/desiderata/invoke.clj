@@ -44,6 +44,3 @@
   `(defrecord ~name [~@fields]
      ~@(extend-IFn f)
      ~@opts+specs))
-
-(defrecordfn Person [name age]
-  get)
